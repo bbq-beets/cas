@@ -16,17 +16,17 @@ env:
 
 ##########################################################################
 
-
-workflow_dispatch:
-  inputs:
-    chosen-runner:
-      required: true
-      type: choice
-      options:
-      - alex-arm64-linux
-      - alex-arm64-windows
-      - 4-core-ubuntu-benchmark-perf-test
-      - 8-core-windows-benchmark-perf-test
+on:
+  workflow_dispatch:
+    inputs:
+      chosen-runner:
+        required: true
+        type: choice
+        options:
+        - alex-arm64-linux
+        - alex-arm64-windows
+        - 4-core-ubuntu-benchmark-perf-test
+        - 8-core-windows-benchmark-perf-test
 
 
 ##########################################################################
