@@ -1,4 +1,5 @@
 name: Build
+run-name: Running first party validation for ${{ inputs.chosen-runner }}
 
 env:
   JAVA_OPTS: "-Xms512m -Xmx6048m -Xss128m -XX:ReservedCodeCacheSize=512m -server"
