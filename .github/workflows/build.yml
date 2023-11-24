@@ -1,5 +1,5 @@
 name: Build
-run-name: Running first party validation for ${{ inputs.chosen-runner }}
+run-name: Running smoke test for ${{ inputs.chosen-runner }}
 
 env:
   JAVA_OPTS: "-Xms512m -Xmx6048m -Xss128m -XX:ReservedCodeCacheSize=512m -server"
@@ -44,7 +44,7 @@ jobs:
   ##########################################################################
 
   initialize:
-    runs-on: macos-latest
+    runs-on: ${{ inputs.chosen-runner }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK
@@ -65,11 +65,7 @@ jobs:
   build:
     needs: [initialize]
     continue-on-error: false
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ inputs.chosen-runner }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK
@@ -101,7 +97,7 @@ jobs:
   ##########################################################################
 
   build-latest-jdk:
-    runs-on: macos-latest
+    runs-on: ${{ inputs.chosen-runner }}
     needs: [initialize]
     continue-on-error: false
     steps:
@@ -130,7 +126,7 @@ jobs:
   ##########################################################################
 
   build-graalvm:
-    runs-on: macos-latest
+    runs-on: ${{ inputs.chosen-runner }}
     needs: [initialize]
     continue-on-error: false
     steps:
