@@ -13,7 +13,7 @@ env:
   GH_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GH_PACKAGE_REGISTRY_TOKEN }}
   JDK_CURRENT: 21
   JDK_LATEST: 21
-  JDK_DISTRIBUTION: "corretto"
+  JDK_DISTRIBUTION: "oracle"
 
 ##########################################################################
 
