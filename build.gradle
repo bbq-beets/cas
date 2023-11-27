@@ -150,7 +150,7 @@ allprojects {
     apply from: rootProject.file("gradle/tasks.gradle")
     def arch = System.getProperty("os.arch")
     if (arch == "aarch64") {
-        System.setProperty("os.arch", "arm64")
+        // System.setProperty("os.arch", "arm64")
         arch = System.getProperty("os.arch")
         def name = System.getProperty("os.name")
         logger.info("The OS platform architecture for this Gradle build is reset to ${arch} for ${name}")
